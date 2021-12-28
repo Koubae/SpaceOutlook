@@ -4,9 +4,9 @@
 * Heroku: $ heroku config:set NODE_ENV="production"
 */
 const cache = require('./lib/cache');
-const PORT = process.env.PORT;
+const PORT = process.env.PORT || 5000;
 const BUILD = process.env.BUILD;
-const HOST =  BUILD !== 'production' ? '127.0.0.1' : '127.0.0.1';
+const HOST =  BUILD !== 'production' ? '127.0.0.1' : 'https://desolate-sea-56993.herokuapp.com/';
 const APPNAME = process.env.APPNAME;
 const emailAddr = process.env.EMAIL_ADMIN;
 const AppPass = process.env.EMAIL_ADMIN_PASS;

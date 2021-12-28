@@ -230,8 +230,9 @@ async function postData(url, data = {}) {
     return response.json();
 
 }
+const BUILD = 'production';
+const HOST = BUILD === 'production' ? "https://desolate-sea-56993.herokuapp.com/": "http://127.0.0.1:5000";
 
-const HOST = "http://127.0.0.1:5000";
 async function getpicOfDay(date, is_today) {
     const [err, data] = await promiseHandle(postData(HOST + '/api/v1/pod', { date: date , is_today: is_today}));
     if (err || !data) { // if not data returned than we treat it as an error
