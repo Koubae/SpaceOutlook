@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="en">
+<%- include('./macros/head'); %>
+<%- include('./macros/body'); %>
+    <%- include('./macros/content', {background: 'background--image-about'}); %>
+    <%- include('./macros/navbar', {aboutScreen: true}); %>
+
+    <main class="px-3">
+        <header class="spacehub--header">
+            <div class="container-fluid">
+                <section class="spacehub--card spacehub--bg-primary-op--8">
+                  <div class="flex-column-center card-press">
+                      <h1 class="spacehub--section-title-nomargin">Author
+                      <a href="https://federicobau.dev/" class="spacehub--link" target="_blank"><h1>Federico Bau</h1></a>
+                      </h1>
+
+                      <h3>
+                        Project Goal
+                      </h3>
+
+                      <p class="spacehub--section-text spacehub--figure-caption">
+                        I'm a web and software full-stack developer, working with different technologies.
+                        <br>
+                        I love space and wide images that are taken which shows the infinite picture of the deep space.
+                        <br>
+                        This is a side project born to learn some web development technologies such as Node.js and Express.js
+                        while aiming to create something that may be enjoyable and usefully to other, and of course, with a topic that
+                        I personally love.
+
+                      </p>
+
+                  </div>
+                </section>
+            </div>
+        </header>
+
+
+         <section class="spacehub--card spacehub--bg-primary-op--8">
+              <div class="flex-column-center card-press">
+                   <h1 class="spacehub--section-title-nomargin">Credits</h1>
+
+                  <p class="spacehub--section-text spacehub--figure-caption">
+                      This Webapp is made possible thanks to the free
+                      <a href="https://api.nasa.gov"  class="spacehub--link" target="_blank">Nasa API</a> that has been made available to the public.
+                    Most of the data available is therefore provided by their databases.
+                  </p>
+              </div>
+         </section>
+        <br/><br/><br/> <br/><br/><br/>
+    </main>
+
+
+    <%- include('./macros/footer');%>
+    </div>
+</body>
+</html>

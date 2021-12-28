@@ -1,0 +1,82 @@
+<!doctype html>
+<html lang="en">
+<%- include('./macros/head'); %>
+<%- include('./macros/body'); %>
+    <%- include('./macros/content', {background: 'background--image-contact-me'}); %>
+    <%- include('./macros/navbar', {contactMeScreen: true}); %>
+
+    <main class="px-3">
+        <header class="spacehub--header">
+            <div class="container-fluid">
+                <section class="spacehub--card spacehub--bg-primary-op--8">
+                  <div class="flex-column-center card-press">
+                      <h4 >
+                            Contact the Author
+                        <a href="https://federicobau.dev/" class="spacehub--link" target="_blank">
+                            Federico Bau
+                        </a>
+                      </h4>
+
+                      <% if (typeof errors !== 'undefined') {%>
+                         <div class="alert spacehub--alert-error" role="alert">
+                          <% errors.forEach((err) => { %>
+                             <p class="spacehub--alert-msg">
+                                 <%= err %>
+                             </p>
+
+                          <% });%>
+                        </div>
+                       <% } else if (typeof success !== 'undefined') { %>
+                           <div class="alert spacehub--alert-success" role="alert">
+                               <p class="spacehub--alert-msg">
+                                 <%= success %>
+                             </p>
+                           </div>
+                      <% }%>
+
+                     <script>
+                        window.history.pushState("", "", '/contact_me');
+                    </script>
+                    <form class="row g-3 "  action="/contact_me/sendMsg" method="POST">
+                         <div class="col-md-6">
+                            <label for="name" class="form-label">Name & Surname</label>
+                                <input type="text" class="form-control" id="name" name="name" placeholder="Your name..." required >
+                            <div class="valid-feedback">
+                                Hello
+                            </div>
+                          </div>
+                         <div class="col-md-6">
+                            <label for="userEmail" class="form-label" >Email address</label>
+                            <input type="email" class="form-control" id="userEmail" name="userEmail" placeholder="youremail@example.com" required>
+                        </div>
+
+                        <div class="col-12 mb-3">
+                            <label for="subject" class="form-label">Subject</label>
+                            <input type="text" class="form-control" id="subject" name="subject" placeholder="Subject..." required>
+                        </div>
+
+
+                        <div class="col-12 mb-3">
+                            <label for="message" class="form-label">Message</label>
+                            <textarea class="form-control" id="message" name="message" rows="3" required >
+
+                            </textarea>
+                        </div>
+
+                        <div class="col-12">
+                            <button class="spacehub--btn btn--large " type="submit">Send</button>
+                        </div>
+                    </form>
+
+                  </div>
+                </section>
+            </div>
+        </header>
+        <br/><br/><br/> <br/><br/><br/>
+    </main>
+
+    <%- include('./macros/footer');%>
+    </div>
+</body>
+</html>
+

@@ -1,0 +1,122 @@
+<!doctype html>
+<html lang="en">
+<%- include('./macros/head'); %>
+<%- include('./macros/body'); %>
+    <%- include('./macros/content', {background: 'background--image-gallery'}); %>
+    <%- include('./macros/navbar', {galleryScreen: true}); %>
+
+    <main class="px-3">
+        <header class="spacehub--header-small">
+        </header>
+
+         <div class="spacehub--card-many-wrapper">
+
+             <% pods.forEach(function(pod) { %>
+
+                 <article class="container POD-WIdget spacehub--bg-primary-op--8 spacehub--card-many-item widget--pod"
+                 data-bs-toggle="modal" data-bs-target="#key_<%= pod.date %>">
+                     <h3>
+                         <span id="picOfDayTitle" class="spacehub--text-secondary spacehub--text-title">
+                             <%= pod.title %>
+                         </span>
+                         <span id="picOfDayDateText"><%= pod.date %></span>
+                     </h3>
+
+                     <figure class="figure">
+                         <div class="picOfDayScreens spacehub--screen content--loading" >
+                            <% if (pod.media_type === 'image') { %>
+                                <img class="picOfDayImage spacehub--image-sized"
+                                src="<%= pod.hdurl %>" alt="Picture of the day.." />
+                                <iframe id="picOfDayVideo" class="spacehub--video-sized spacehub--hide" src="" allowfullscreen></iframe>
+
+                            <% } else if (pod.media_type === 'video') { %>
+                                 <img class="picOfDayImage spacehub--image-sized spacehub--hide"
+                                    src=""  />
+                                <iframe id="picOfDayVideo" class="spacehub--video-sized" src="<%= pod.url %>" allowfullscreen></iframe>
+
+                            <% } else { %>
+                              <p class="text-info">No data to show...</p>
+                              <img class="picOfDayImage spacehub--image-sized spacehub--hide" src="" />
+                               <iframe id="picOfDayVideo" class="spacehub--video-sized spacehub--hide" src="" allowfullscreen></iframe>
+                            <% } %>
+                            <div  class="picOfDayLoadings spacehub--is-loading-container spacehub--hide">
+                            <!--
+                                Spinner Credit
+                                Youtuber: @dcode https://www.youtube.com/watch?v=trsuokl2Fp4
+                                CodePen: https://codepen.io/dcode-software/pen/vYKVepQ
+                            -->
+                              <div class="spacehub--is-loading "></div>
+                            </div>
+                         </div>
+                     </figure>
+
+                 </article>
+
+                <div class="modal fade modal-fullscreen" id="key_<%= pod.date %>" tabindex="-1" aria-labelledby="pod" aria-hidden="true">
+                  <article class="container POD-WIdget spacehub--bg-primary-op--8 spacehub--card-many-item widget--pod">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h1>
+                                     <span id="picOfDayTitle" class="spacehub--text-secondary spacehub--text-title">
+                                         <%= pod.title %>
+                                     </span>
+                                     <span id="picOfDayDateText"><%= pod.date %></span>
+                                </h1>
+                                <button type="button" class="spacehub--btn" data-bs-dismiss="modal">Close</button>
+                            </div>
+                            <div class="modal-body">
+                                <figure class="figure">
+                                     <div class="picOfDayScreens spacehub--screen content--loading" >
+                                        <% if (pod.media_type === 'image') { %>
+                                            <img class="picOfDayImage spacehub--image"
+                                            src="<%= pod.hdurl %>" alt="Picture of the day.." />
+                                            <iframe id="picOfDayVideo" class="spacehub--video spacehub--hide" src="" allowfullscreen></iframe>
+
+                                        <% } else if (pod.media_type === 'video') { %>
+                                             <img class="picOfDayImage spacehub--image spacehub--hide"
+                                                src=""  />
+                                            <iframe id="picOfDayVideo" class="spacehub--video" src="<%= pod.url %>" allowfullscreen></iframe>
+
+                                        <% } else { %>
+                                          <p class="text-info">No data to show...</p>
+                                          <img class="picOfDayImage spacehub--image spacehub--hide" src="" />
+                                           <iframe id="picOfDayVideo" class="spacehub--video spacehub--hide" src="" allowfullscreen></iframe>
+                                        <% } %>
+
+                                     </div>
+                                     <figcaption class="figure-caption spacehub--figure-caption-static">
+                                          <span  id="picOfDayExplanation" class="spacehub--figure-caption-static-description"> <%= pod.explanation %></span>
+                                           <i class="far fa-heart"></i>
+
+                                           <% if (typeof pod.copyright !== 'undefined') {%>
+                                              <small>©
+                                                  <span id="picOfDayCopyright"><%= pod.copyright %>
+                                                  </span>
+                                              </small>
+                                           <% }%>
+                                     </figcaption>
+                                 </figure>
+                            </div>
+
+                        </div>
+                    </div>
+
+                  </article>
+                </div>
+
+
+
+
+
+             <% }); %>
+        </div>
+
+
+    </main>
+
+    <%- include('./macros/footer');%>
+    </div>
+</body>
+</html>
+

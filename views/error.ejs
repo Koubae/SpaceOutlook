@@ -1,0 +1,28 @@
+<!doctype html>
+<html lang="en">
+<%- include('./macros/head'); %>
+<%- include('./macros/body'); %>
+    <%- include('./macros/content'); %>
+    <%- include('./macros/navbar'); %>
+
+      <main class="px-3">
+        <header class="spacehub--header">
+            <div role="alert" class="alert alert-danger spacehub--alert spacehub--alert-primary">
+                 <% if (typeof messageAdmin !== 'undefined') {%>
+                     <div class="spacehub--alert-msg-admin">
+                         <p> <%= messageAdmin %></p>
+                         <p> <%= error %></p>
+                     </div>
+                <% } %>
+                 <div class="spacehub--alert-msg">
+                      <h1> <%= message %> | <%= status %></h1>
+                     <h1>Return to <a href="/" class="spacehub--text-secondary"> Home </a></h1>
+                 </div>
+            </div>
+        </header>
+      </main>
+
+    <%- include('./macros/footer');%>
+    </div>
+</body>
+</html>

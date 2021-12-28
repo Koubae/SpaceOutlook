@@ -1,0 +1,26 @@
+<nav class="spacehub--navbar">
+    <div class="spacehub--navbar-wrapper">
+        <div class="spacehub--brand-wrapper">
+            <a href="/"><h3 class="float-md-start mb-0 spacehub--brand"><%= appName %></h3></a>
+        </div>
+
+        <div class="spacehub--bg-primary spacehub--navbar-items spacehub--transform">
+            <ul>
+                <li class="spacehub--navbar-item <%= typeof homeScreen !== 'undefined' ? 'selected' : '' %>">
+                    <a href="<%= typeof homeScreen !== 'undefined' ? '#' : '/' %>" > Home </a>
+                </li>
+                <li class="spacehub--navbar-item  <%= typeof galleryScreen !== 'undefined' ? 'selected' : '' %>">
+                    <a href=" <%= typeof galleryScreen !== 'undefined' ? '#' : '/gallery' %>" > Gallery </a>
+                </li>
+                <li class=" <%= typeof aboutScreen !== 'undefined' ? 'selected' : '' %>">
+                    <a href=" <%= typeof aboutScreen !== 'undefined' ? '#' : '/about' %>"> About </a>
+                </li>
+                <li class=" <%= typeof contactMeScreen !== 'undefined' ? 'selected' : '' %>">
+                    <a href=" <%= typeof contactMeScreen !== 'undefined' ? '#' : '/contact_me' %>"> Contact Me </a>
+                </li>
+                <li><a href="https://www.nasa.gov" target="_blank"> Nasa </a></li>
+            </ul>
+
+        </div>
+    </div>
+</nav>
