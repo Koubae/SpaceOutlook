@@ -441,6 +441,12 @@ spacehub--figure-caption-static * {
     align-items: center;
     margin-left: auto;
 
+    /*  Push it up. bigger content covers it  */
+    position: relative;
+    top: 0;
+    left: 0;
+    z-index: 1010;
+
 }
 
 .widget--calendar {
