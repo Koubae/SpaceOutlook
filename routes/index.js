@@ -24,14 +24,7 @@ let NasaAPI = require('../lib/api/NasaAPI');
  *  its actual date. That's because well store as DB by year.
  * */
 function load(req, res, next) {
-    // TODO: Remove this in production
-    let test = true;
-    if (test) {
-        debug("Testing, getting Test POD");
-        // let data = NasaAPI.getPOSTest();
-        res.locals.pod = NasaAPI.getPOSTestVideo();
-        return next();
-    }
+
     let today = todayDate()
     let todayPOD = appCache.getPOD(today);
     if (todayPOD) {

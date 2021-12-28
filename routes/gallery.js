@@ -7,14 +7,9 @@ const { getTodayMonthRange, } = require('../lib/tools');
 // API
 let NasaAPI = require('../lib/api/NasaAPI');
 
-let TEST = true;
 
 function load(req, res, next) {
-    if (TEST) {
-        let rangePOD = NasaAPI.getPODDateRangeTest();
-        res.locals.rangePOD = rangePOD;
-        return next();
-    }
+
     let firstDay = getTodayMonthRange(); // The first day is enough, last day default date of today
     let key = `range_${firstDay}`;
     let rangePOD = appCache.getPOD(key);
@@ -24,7 +19,6 @@ function load(req, res, next) {
     }
     let notFoundMsg = `POD Date Range ${firstDay} not found, Requesting to Nasa POD`;
     debug(notFoundMsg);
-    console.debug(notFoundMsg);
     return NasaAPI.getPODDateRange(firstDay)
         .then(resp =>  {
            let data = resp.data
