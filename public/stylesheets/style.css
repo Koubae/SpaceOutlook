@@ -189,7 +189,7 @@ body::-webkit-scrollbar-thumb {
 .spacehub--brand-wrapper {
     text-transform: uppercase;
     padding: 1rem;
-    cursor: pointer;
+    cursor: default;
     text-shadow:
         1px 0px 1px #313131,
         0px 1px 1px #737373,
@@ -292,7 +292,10 @@ body::-webkit-scrollbar-thumb {
     grid-template-columns: auto auto auto;
      grid-row-gap: 50px;
      grid-column-gap: 50px;
-
+    justify-content: center;
+    align-content: center;
+    align-items: center;
+    justify-items: center;
 }
 
 .spacehub--card-many-item {
@@ -672,4 +675,203 @@ CodePen: https://codepen.io/dcode-software/pen/vYKVepQ
 
 }
 
+.spacehub--footer {
+  margin-top: 5rem;
+}
 
+/* MEDIAS */
+
+/* ------------ SmartPhone */
+@media screen and (min-width: 0px) {
+    .spacehub--navbar {
+        position: unset;
+        width: 70%;
+    }
+    .spacehub--navbar-items {
+       font-size: .9rem;
+           height: 35vh;
+    }
+
+    html, body {
+        font-size: 54%;
+    }
+
+    .spacehub--header {
+        height: 0vh;
+    }
+    .spacehub--footer {
+      margin-top: 25rem;
+    }
+    .spacehub--video {
+        height: 35vh;
+    }
+    .spacehub--figure-caption {
+        font-size: .7rem!important;
+    }
+    .spacehub--figure-caption-static {
+        font-size: .7rem!important;
+    }
+
+    .spacehub--card-many-wrapper {
+        grid-template-columns: auto;
+    }
+    .spacehub--image-sized  {
+        width: 150px;
+        height: 150px;
+    }
+    .spacehub--card-many-item {
+        width: 100%;
+    }
+    .separator {
+         margin: 25rem 0;
+     }
+    .separator--small {
+         margin: 3rem  0;
+     }
+    .spacehub--figure-caption {
+         width: 100%;
+     }
+
+}
+/* ------------ iPads, Tablets */
+@media screen and (min-width: 481px) {
+    html, body {
+        font-size: 75%;
+    }
+    .spacehub--header {
+        height: 25vh;
+    }
+    .spacehub--footer {
+      margin-top: 15rem;
+    }
+    .spacehub--video {
+        height: 50vh;
+    }
+    .spacehub--figure-caption {
+        font-size: .9rem!important;
+    }
+    .spacehub--figure-caption-static {
+        font-size: .9rem!important;
+    }
+     .spacehub--image-sized  {
+        width: 200px;
+        height: 200px;
+    }
+    .spacehub--card-many-item {
+        width: 100%;
+    }
+    .separator {
+         margin: 15rem 0;
+     }
+    .separator--small {
+         margin: 3rem  0;
+     }
+     .spacehub--figure-caption {
+         width: 100%;
+     }
+
+}
+
+ /* ------------ Small screens, laptops */
+@media screen and (min-width: 769px) {
+     html, body {
+        font-size: 85%;
+    }
+    .spacehub--navbar {
+        position: fixed;
+         width: 80%;
+    }
+    .spacehub--navbar-items {
+
+         font-size: 1.5rem;
+         height: 50vh;
+    }
+
+    .spacehub--header {
+        height: 150vh;
+    }
+    .spacehub--footer {
+      margin-top: 15rem;
+    }
+    .spacehub--video {
+        height: 50vh;
+    }
+    .spacehub--figure-caption {
+        font-size: 1.1rem!important;
+    }
+    .spacehub--figure-caption-static {
+        font-size: 1.1rem!important;
+    }
+    .spacehub--card-many-wrapper {
+        grid-template-columns: auto auto ;
+    }
+     .spacehub--image-sized  {
+       width: 250px;
+    height: 250px;
+    }
+    .spacehub--card-many-item {
+        width: 100%;
+    }
+     .separator {
+         margin: 3rem 0;
+     }
+     .separator--small {
+         margin:0;
+     }
+      .spacehub--figure-caption {
+        width: 100%;
+     }
+
+
+}
+ /* ------------ Desktops, large screens */
+@media screen and (min-width: 1025px)  {
+     html, body {
+        font-size: 100%;
+    }
+    .spacehub--navbar {
+         width: 100%;
+    }
+    .spacehub--footer {
+      margin-top: 5rem;
+    }
+    .spacehub--video {
+        height: 100vh;
+    }
+    .spacehub--figure-caption {
+        font-size: 1.2rem!important;
+    }
+     .spacehub--figure-caption-static {
+         font-size: 1.2rem!important;
+    }
+    .spacehub--card-many-wrapper {
+        grid-template-columns: auto auto auto;
+    }
+    .separator {
+         margin: 2rem 0;
+     }
+    .spacehub--figure-caption {
+        width: 100%;
+     }
+
+}
+
+ /* ------------ Extra large screens */
+@media screen and (min-width: 1201px) {
+    .spacehub--header {
+        height: 150vh;
+    }
+    .spacehub--figure-caption {
+        font-size: 1.2rem!important;
+    }
+     .spacehub--figure-caption-static {
+         font-size: 1.2rem!important;
+    }
+     .separator {
+         margin: 0;
+     }
+      .spacehub--figure-caption {
+        width: 100%;
+     }
+
+}
