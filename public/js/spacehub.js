@@ -44,7 +44,6 @@
 
       let imageEl = document.querySelectorAll('.picOfDayImage');
       let videoEl = document.querySelector('#picOfDayVideo');
-
       let hideTodayBTN = false;
 
       // Create Missing value todo: improve this. this is because is not created with template ejs
@@ -77,20 +76,27 @@
                       dateEl.textContent = date;
                       explanationEl.textContent = explanation;
                       copyrightEl.textContent = copyright;
+                      if (picOfDayTodayBtn) hideEl(picOfDayTodayBtn);
 
                       // Resolving media type
                       if (media_type === 'image') {
-                          imageEl.src = hdurl;
-                          showEl(imageEl);
-                          videoEl.src = '';
-                          hideEl(videoEl);
+                          if (imageEl) {
+                              imageEl[0].src = hdurl;
+                              showEl(imageEl[0]);
+                              videoEl.src = '';
+                              hideEl(videoEl);
+                          }
+
 
                       }
                       else if (media_type === 'video') {
                             videoEl.src = url;
                             showEl(videoEl);
-                            imageEl.src = '';
-                            hideEl(imageEl);
+                             if (imageEl) {
+                                imageEl[0].src = '';
+                                hideEl(imageEl[0]);
+                             }
+
                       }
                       else console.error(`Error while getting Nasa POD for ${value} | Data Received:\n ${data}`);
 
@@ -126,8 +132,11 @@
 
                       // Resolving media type
                       if (media_type === 'image') {
-                          imageEl.src = hdurl;
-                          showEl(imageEl);
+                          if (imageEl) {
+                              imageEl[0].src = hdurl;
+                              showEl(imageEl[0]);
+                          }
+
                           videoEl.src = '';
                           hideEl(videoEl);
 
@@ -135,8 +144,11 @@
                       else if (media_type === 'video') {
                             videoEl.src = url;
                             showEl(videoEl);
-                            imageEl.src = '';
-                            hideEl(imageEl);
+                            if (imageEl) {
+                             imageEl[0].src = '';
+                            hideEl(imageEl[0]);
+                           }
+
                       }
 
                       else console.error(`Error while getting Nasa POD for ${value} | Data Received:\n ${data}`);
@@ -145,7 +157,15 @@
                   .catch(err => console.error(err));
           })
       }
+
+      if (videoEl) {
+          videoEl.addEventListener('load', function (event) {
+              if (screen) screen.classList.remove('content--loading');
+              if (loading) hideEl(loading);
+          });
+      }
       if(imageEl) {
+
           imageEl.forEach((el) => {
               if (el.complete && el.naturalWidth) {
                   let screenLoading = el.parentElement;
@@ -162,7 +182,6 @@
               }
               else {
                   el.addEventListener('load', function (event) {
-                  console.log("Loaded")
                   let screenLoading = this.parentElement;
                   let imageLoaded = this.complete;
                   let naturalWidth = this.naturalWidth;
@@ -194,7 +213,7 @@
               });
 
                   el.addEventListener('error', (event) => {
-                      let screenLoading = this.parentElement;
+                      let screenLoading = event.target.parentElement;
                       console.error("Error while Rendering the request image.. Event", event);
                        if (screen) screen.classList.remove('content--loading');
                        else screenLoading.classList.remove('content--loading');

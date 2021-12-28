@@ -13,7 +13,7 @@ function hideEl(el) {
 }
 
 function showEl(el) {
-    if (el && el.classList && el.classList.contains('spacehub--hide')) el.classList.remove('spacehub--hide');
+    if (el.classList.contains('spacehub--hide')) el.classList.remove('spacehub--hide');
 }
 
 function toggleTransform(el) {
