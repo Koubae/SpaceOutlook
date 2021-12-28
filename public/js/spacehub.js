@@ -231,7 +231,7 @@ async function postData(url, data = {}) {
 
 }
 const BUILD = 'production';
-const HOST = BUILD === 'production' ? "https://desolate-sea-56993.herokuapp.com/": "http://127.0.0.1:5000";
+const HOST = BUILD === 'production' ? "https://desolate-sea-56993.herokuapp.com": "http://127.0.0.1:5000";
 
 async function getpicOfDay(date, is_today) {
     const [err, data] = await promiseHandle(postData(HOST + '/api/v1/pod', { date: date , is_today: is_today}));
